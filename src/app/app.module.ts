@@ -2,20 +2,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-
 import { AppRoutingModule } from './app-routing.module';
-
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './remote/in-memory-data.service';
-
 import './common/rxjs-extensions.ts';
-
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './detail/hero-detail.component';
-import { HeroService } from './remote/hero.service';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { HeroSearchComponent } from './heroes/hero-search/hero-search.component';
+import { InMemoryDataService } from './common/in-memory-data.service';
+import { HeroesModule } from './heroes/heroes.module';
+import { CrisisCenterModule } from './crisis-center/crisis-center.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 require('../../public/css/styles.css');
 
@@ -25,18 +21,17 @@ require('../../public/css/styles.css');
 		FormsModule,
 		HttpModule,
 		InMemoryWebApiModule.forRoot(InMemoryDataService),
+
+		HeroesModule,
+		CrisisCenterModule,
+		DashboardModule,
+
 		AppRoutingModule
 	],
 	declarations: [
-		AppComponent,
-		DashboardComponent,
-		HeroDetailComponent,
-		HeroesComponent,
-		HeroSearchComponent
+		AppComponent
 	],
-	providers: [
-		HeroService
-	],
+	providers: [],
 	bootstrap: [
 		AppComponent
 	]

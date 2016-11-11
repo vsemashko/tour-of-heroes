@@ -1,24 +1,30 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from '@angular/router';
-import { Hero } from "../hero";
-import { HeroService } from '../remote/hero.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
 
 @Component({
-	selector: 'my-heroes',
-	templateUrl: './heroes.component.html',
-	styleUrls: ['./heroes.component.css']
+	selector: 'my-hero-list',
+	templateUrl: './hero-list.component.html',
+	styleUrls: ['./hero-list.component.css']
 
 })
-export class HeroesComponent implements OnInit {
+export class HeroListComponent implements OnInit {
 	selectedHero: Hero;
 	heroes: Hero[];
 
+	private selectedId: number;
+
 	constructor(private heroService: HeroService,
-	            private router: Router) {
+	            private router: Router,
+	            private route: ActivatedRoute) {
 	}
 
 	ngOnInit(): void {
-		this.getHeroes();
+		this.route.params.forEach((params: Params) => {
+			this.selectedId = +params['id'];
+			this.getHeroes();
+		});
 	}
 
 	add(name: string): void {
@@ -48,8 +54,12 @@ export class HeroesComponent implements OnInit {
 		this.selectedHero = hero;
 	}
 
+	isSelected(hero: Hero) {
+		return this.selectedHero ? this.selectedHero.id === hero.id : hero.id === this.selectedId;
+	}
+
 	gotoDetail(): void {
-		this.router.navigate(['/detail', this.selectedHero.id]);
+		this.router.navigate(['/hero', this.selectedHero.id]);
 	}
 
 	private getHeroes(): void {
