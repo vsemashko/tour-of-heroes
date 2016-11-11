@@ -9,7 +9,7 @@ const routes: Routes = [
 	{path: 'admin', loadChildren: 'admin/admin.module#AdminModule', canLoad: [AuthGuard]}
 ];
 @NgModule({
-	imports: [RouterModule.forRoot(routes, {preloadingStrategypreloadingStrategy: PreloadAllModules})],
+	imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
 	exports: [RouterModule],
 	providers: [
 		CanDeactivateGuard
