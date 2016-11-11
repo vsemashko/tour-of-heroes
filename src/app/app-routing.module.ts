@@ -1,15 +1,14 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component';
-import { HeroListComponent } from './heroes/hero-list/hero-list.component';
-import { CrisisListComponent } from './crisis-center/crisis-list/crisis-list.component';
+import { CanDeactivateGuard } from './authentication/can-deactivate-guard.service';
 
-const routes: Routes = [
-];
+const routes: Routes = [];
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
-	exports: [RouterModule]
+	exports: [RouterModule],
+	providers: [
+		CanDeactivateGuard
+	]
 })
 export class AppRoutingModule {
 }

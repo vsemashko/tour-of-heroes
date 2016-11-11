@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Crisis } from '../crisis';
-import { CrisisService } from '../crisis.service';
+import { CrisisService, Crisis } from '../crisis.service';
+import { DialogService } from '../../common/modal-dialog/dialog.service';
 
 @Component({
 	selector: 'my-crisis-detail',
@@ -11,21 +11,41 @@ import { CrisisService } from '../crisis.service';
 export class CrisisDetailComponent implements OnInit {
 
 	crisis: Crisis;
+	editName: string;
 
 	constructor(private crisisService: CrisisService,
 	            private route: ActivatedRoute,
-	            private router: Router) {}
+	            private router: Router,
+	            private dialogService: DialogService) {}
 
 	ngOnInit(): void {
-		this.route.params.forEach((params: Params) => {
-			let id = +params['id'];
-			this.crisisService.getCrisis(id)
-				.then(crisis => this.crisis = crisis);
+		this.route.data.forEach((data: { crisis: Crisis }) => {
+			this.editName = data.crisis.name;
+			this.crisis = data.crisis;
 		});
 	}
 
-	gotoCrisis(): void {
+	cancel() {
+		this.gotoCrises();
+	}
+
+	save() {
+		this.crisis.name = this.editName;
+		this.gotoCrises();
+	}
+
+	gotoCrises(): void {
 		let crisisId = this.crisis ? this.crisis.id : null;
-		this.router.navigate(['../', { id: crisisId }], { relativeTo: this.route });
+		this.router.navigate(['../', {id: crisisId}], {relativeTo: this.route});
+	}
+
+	canDeactivate(): Promise<boolean> | boolean {
+		// Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged
+		if (!this.crisis || this.crisis.name === this.editName) {
+			return true;
+		}
+		// Otherwise ask the user with the dialog service and return its
+		// promise which resolves to true or false when the user decides
+		return this.dialogService.confirm('Discard changes?');
 	}
 }

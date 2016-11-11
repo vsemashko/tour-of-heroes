@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Crisis } from '../crisis';
-import { CrisisService } from '../crisis.service';
+import { CrisisService, Crisis } from '../crisis.service';
 
 @Component({
 	selector: 'my-crisis-list',

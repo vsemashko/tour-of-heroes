@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Crisis } from './crisis';
+
+export class Crisis {
+	constructor(public id: number, public name: string) { }
+}
 
 let CRISIS = [
 	new Crisis(11, 'Mr. Nice'),
