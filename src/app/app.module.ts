@@ -8,9 +8,7 @@ import './common/rxjs-extensions.ts';
 import { AppComponent } from './app.component';
 import { InMemoryDataService } from './common/in-memory-data.service';
 import { HeroesModule } from './heroes/heroes.module';
-import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { AdminModule } from './admin/admin.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { LoginComponent } from './login/login.component';
 import { DialogService } from './common/modal-dialog/dialog.service';
@@ -25,9 +23,7 @@ require('../../public/css/styles.css');
 		InMemoryWebApiModule.forRoot(InMemoryDataService),
 
 		HeroesModule,
-		CrisisCenterModule,
 		DashboardModule,
-		AdminModule,
 		LoginRoutingModule,
 
 		AppRoutingModule

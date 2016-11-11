@@ -10,7 +10,7 @@ import { AuthGuard } from '../authentication/auth-guard.service';
 	imports: [
 		RouterModule.forChild([
 			{
-				path: 'admin',
+				path: '',
 				component: AdminComponent,
 				canActivate: [AuthGuard],
 				children: [
