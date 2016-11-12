@@ -14,7 +14,7 @@ export class CrisisDetailResolve implements Resolve<Crisis> {
 				return crisis;
 			} else { // id not found
 				this.router.navigate(['/crisis-center']);
-				return false;
+				return null;
 			}
 		});
 	}
