@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
-import { CanDeactivateGuard } from './authentication/can-deactivate-guard.service';
 import { AuthGuard } from './authentication/auth-guard.service';
+import { CanDeactivateGuard } from "./authentication/can-deactivate-guard.service";
 
 const routes: Routes = [
 	{path: '', redirectTo: '/dashboard', pathMatch: 'full'},
