@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { AwesomePipe } from './awesome.pipe';
 import { HighlightDirective } from './highlight.directive';
 import { DynamicModule } from '../dynamic/dynamic.module';
+import { GridModule } from '../common/grid-view/grid.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        DynamicModule
+        DynamicModule,
+        GridModule
     ],
     declarations: [
         AwesomePipe,
@@ -19,7 +21,8 @@ import { DynamicModule } from '../dynamic/dynamic.module';
         HighlightDirective,
         CommonModule,
         FormsModule,
-        DynamicModule
+        DynamicModule,
+        GridModule
     ]
 })
 export class SharedModule {
