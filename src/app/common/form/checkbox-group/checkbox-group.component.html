@@ -1,0 +1,10 @@
+<div *ngIf="checkboxes && selectedCheckboxes" class="checkbox-group">
+    <label *ngFor="let checkbox of checkboxes" class="checkbox-label">
+        <input type="checkbox" class="checkbox-input"
+               [disabled]="disabled"
+               (blur)="_onInputBlur()"
+               [checked]="isSelected(checkbox)"
+               (change)="toggleCheckbox(checkbox)">
+        {{getDisplayedName(checkbox)}}
+    </label>
+</div>
