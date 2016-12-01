@@ -12,6 +12,7 @@ export class ManageHeroesComponent {
 	model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet', [this.skills[1]]);
 	submitted = false;
 	active = true;
+	verified:boolean = null;
 
 	onSubmit() {
 		this.submitted = true;

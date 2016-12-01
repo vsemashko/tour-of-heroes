@@ -13,6 +13,7 @@ import { NotEmptyValidator } from '../common/form/not-empty-validator.directive'
 	imports: [
 		CommonModule,
 		DynamicModule,
+		FormsModule,
 		GridModule
 	],
 	declarations: [
