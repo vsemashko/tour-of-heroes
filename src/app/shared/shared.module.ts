@@ -8,13 +8,14 @@ import { GridModule } from '../common/grid-view/grid.module';
 import { CheckboxGroupValidator } from '../common/form/checkbox-group-validator.directive';
 import { CheckboxGroupComponent } from '../common/form/checkbox-group/checkbox-group.component';
 import { NotEmptyValidator } from '../common/form/not-empty-validator.directive';
+import { CaptchaModule } from '../common/form/captcha/captcha.module';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		DynamicModule,
-		FormsModule,
-		GridModule
+		GridModule,
+		CaptchaModule
 	],
 	declarations: [
 		AwesomePipe,
@@ -32,7 +33,8 @@ import { NotEmptyValidator } from '../common/form/not-empty-validator.directive'
 		CommonModule,
 		FormsModule,
 		DynamicModule,
-		GridModule
+		GridModule,
+		CaptchaModule
 	]
 })
 export class SharedModule {

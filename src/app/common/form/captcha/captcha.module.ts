@@ -1,17 +1,15 @@
 import { NgModule } from "@angular/core";
-import { GoogleRecaptchaDirective } from './googlerecaptcha.directive';
 import { CaptchaComponent } from './captcha.component';
+import { ReCaptchaModule } from 'angular2-recaptcha';
 
 @NgModule({
 	imports: [
-
+		ReCaptchaModule
 	],
 	declarations: [
-		GoogleRecaptchaDirective,
 		CaptchaComponent,
 	],
 	exports: [
-		GoogleRecaptchaDirective,
 		CaptchaComponent
 	]
 })
