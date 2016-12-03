@@ -39,3 +39,12 @@ nav a:hover {
 nav a.active {
     color: #039be5;
 }
+
+button[md-raised-button].btn-navigation {
+    color: white;
+    background-color: #6067ff;
+}
+
+button[md-raised-button][disabled].btn-navigation {
+    background-color: rgba(152, 164, 168, 0.91);
+}

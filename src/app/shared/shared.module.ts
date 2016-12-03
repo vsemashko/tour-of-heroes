@@ -7,13 +7,15 @@ import { CheckboxGroupValidator } from './form/checkbox-group-validator.directiv
 import { CheckboxGroupComponent } from './form/checkbox-group/checkbox-group.component';
 import { NotEmptyValidator } from './form/not-empty-validator.directive';
 import { CaptchaModule } from './form/captcha/captcha.module';
+import { MdButton, MaterialModule, MdInput, MdCheckbox } from '@angular/material';
 
 @NgModule({
     imports: [
         CommonModule,
         DynamicModule,
         GridModule,
-        CaptchaModule
+        CaptchaModule,
+        MaterialModule.forRoot()
     ],
     declarations: [
         CheckboxGroupValidator,
@@ -28,7 +30,11 @@ import { CaptchaModule } from './form/captcha/captcha.module';
         FormsModule,
         DynamicModule,
         GridModule,
-        CaptchaModule
+        CaptchaModule,
+
+        MdButton,
+        MdInput,
+        MdCheckbox
     ]
 })
 export class SharedModule {

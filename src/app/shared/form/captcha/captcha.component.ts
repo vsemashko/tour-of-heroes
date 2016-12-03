@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, Output, EventEmitter, ElementRef, OnInit } from '@angular/core';
+import { Component, forwardRef, Input, Output, EventEmitter } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export const CAPTCHA_CONTROL_VALUE_ACCESSOR: any = {

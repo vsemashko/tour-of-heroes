@@ -10,6 +10,7 @@ import { InMemoryDataService } from '../shared/in-memory-data.service';
 import { DialogService } from '../shared/modal-dialog/dialog.service';
 import { DynamicModule } from '../dynamic/dynamic.module';
 import { COMPILER_PROVIDERS } from '@angular/compiler';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -19,10 +20,13 @@ import { COMPILER_PROVIDERS } from '@angular/compiler';
         InMemoryWebApiModule.forRoot(InMemoryDataService),
         DynamicModule
     ],
-    declarations: [LoginComponent],
+    declarations: [
+        LoginComponent
+    ],
     exports: [
         LoginComponent,
-        HttpModule],
+        HttpModule
+    ],
     providers: [
         UserService,
         DialogService,

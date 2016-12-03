@@ -7,6 +7,8 @@ import { HeroesModule } from './heroes/heroes.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ContactModule } from './contact/contact.module';
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { RegistrationModule } from './registration/registration.module';
 
 require('../../public/css/styles.css');
 
@@ -14,9 +16,11 @@ require('../../public/css/styles.css');
     imports: [
         BrowserModule,
         CoreModule,
+        SharedModule,
         HeroesModule,
         DashboardModule,
         ContactModule,
+        RegistrationModule,
         AppRoutingModule
     ],
     declarations: [

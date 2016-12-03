@@ -1,0 +1,11 @@
+<h1>Registration</h1>
+
+<h2>Registration step: {{getCurrentStep().order}} of {{getSteps().length}}</h2>
+
+<div class="step-content">
+    <router-outlet></router-outlet>
+</div>
+
+<button *ngIf="hasPrevious()" md-raised-button class="btn-navigation" (click)="previous()" [disabled]="!canGoPrevious()">Previous</button>
+<button *ngIf="hasNext()" md-raised-button class="btn-navigation next-btn" (click)="next()" [disabled]="!canGoNext()">Next</button>
+<button *ngIf="!hasNext()" md-raised-button class="btn-navigation next-btn" [disabled]="!canGoNext()">Finish</button>

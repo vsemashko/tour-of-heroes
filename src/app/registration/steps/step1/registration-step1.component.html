@@ -1,0 +1,18 @@
+<form #step1="ngForm">
+    <md-input placeholder="First name" [(ngModel)]="user.firstName" name="firstName" required></md-input>
+    <md-input placeholder="Last name" [(ngModel)]="user.lastName" name="lastName" required></md-input>
+    <div class="form-group">
+        <label for="role" class="col-sm-2 control-label">Role</label>
+        <div class="col-sm-8">
+            <select
+                    id="role"
+                    #roleSelect="ngModel"
+                    [(ngModel)]="user.role"
+                    class="form-control"
+                    name="roleSelect"
+                    required>
+                <option *ngFor="let role of roles" [value]="role">{{role.name}}</option>
+            </select>
+        </div>
+    </div>
+</form>

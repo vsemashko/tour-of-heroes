@@ -6,12 +6,14 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroRoutingModule } from './heroes-routing.module';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		FormsModule,
-		HeroRoutingModule
+		HeroRoutingModule,
+		SharedModule
 	],
 	declarations: [
 		HeroListComponent,

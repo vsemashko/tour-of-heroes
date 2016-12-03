@@ -1,0 +1,7 @@
+<form #step2="ngForm">
+    <vcm-checkbox-group [checkboxes]="skills"
+                        [displayName]="'name'"
+                        name="skills" notEmpty
+                        [(ngModel)]="user.skills">
+    </vcm-checkbox-group>
+</form>

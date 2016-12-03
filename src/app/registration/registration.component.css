@@ -1,0 +1,9 @@
+.next-btn {
+    left: 150px;
+    position: absolute;
+}
+
+.step-content {
+    border: 1px solid;
+    min-height: 500px;
+}

@@ -1,0 +1,9 @@
+<form #step3="ngForm">
+    <div class="form-group">
+        <label for="accept" class="col-sm-2 control-label">I have read and accept term of use</label>
+        <div class="col-sm-8">
+            <input id="accept" type="checkbox" class="checkbox" name="isCompleted"
+                   [(ngModel)]="isCompleted" (ngModelChange)="isCompleted = isCompleted ? true : null">
+        </div>
+    </div>
+</form>
