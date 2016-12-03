@@ -6,8 +6,8 @@ import { LoginComponent } from '../login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from '../common/in-memory-data.service';
-import { DialogService } from '../common/modal-dialog/dialog.service';
+import { InMemoryDataService } from '../shared/in-memory-data.service';
+import { DialogService } from '../shared/modal-dialog/dialog.service';
 import { DynamicModule } from '../dynamic/dynamic.module';
 import { COMPILER_PROVIDERS } from '@angular/compiler';
 @NgModule({

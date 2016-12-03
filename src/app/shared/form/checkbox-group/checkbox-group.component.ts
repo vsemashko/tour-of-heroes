@@ -18,8 +18,8 @@ export class CheckboxGroupChange {
 
 @Component({
 	selector: 'vcm-checkbox-group',
-	templateUrl: './checkbox-group.component.html',
-	styleUrls: ['./checkbox-group.component.css'],
+	templateUrl: 'checkbox-group.component.html',
+	styleUrls: ['checkbox-group.component.css'],
 	providers: [CHECKBOX_GROUP_CONTROL_VALUE_ACCESSOR]
 })
 export class CheckboxGroupComponent implements ControlValueAccessor {

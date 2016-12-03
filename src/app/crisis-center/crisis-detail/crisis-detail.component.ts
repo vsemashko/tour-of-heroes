@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CrisisService, Crisis } from '../crisis.service';
-import { DialogService } from '../../common/modal-dialog/dialog.service';
+import { DialogService } from '../../shared/modal-dialog/dialog.service';
 
 @Component({
 	selector: 'my-crisis-detail',

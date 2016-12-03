@@ -4,7 +4,7 @@ import { GridOptions } from './grid-options';
 
 @Component({
 	selector: 'vcm-grid',
-	templateUrl: './grid.component.html',
+	templateUrl: 'grid.component.html',
 	providers: [GridApi]
 })
 export class GridComponent implements AfterContentInit {

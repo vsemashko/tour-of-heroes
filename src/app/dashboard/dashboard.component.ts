@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import { Hero } from '../heroes/hero';
 import { HeroService } from '../heroes/hero.service';
-import { GridOptions } from '../common/grid-view/grid-options';
+import { GridOptions } from '../shared/grid-view/grid-options';
 
 @Component({
     selector: 'my-dashboard',
