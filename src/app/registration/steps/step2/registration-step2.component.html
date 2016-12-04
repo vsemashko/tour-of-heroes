@@ -4,4 +4,12 @@
                         name="skills" notEmpty
                         [(ngModel)]="user.skills">
     </vcm-checkbox-group>
+
+    <hr>
+    <h3>Can add additional step</h3>
+    <label class="checkbox-label">
+        <input type="checkbox" class="checkbox-input" name="addStep"
+               [(ngModel)]="stepAdded" (ngModelChange)="manageAdditionalStep(stepAdded)">
+        Add additional step
+    </label>
 </form>

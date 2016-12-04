@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class RegistrationStep2Component implements OnInit {
     public user: User;
     public skills: Skill[];
+    public stepAdded: boolean;
 
     @ViewChild('step2') currentForm: NgForm;
 
@@ -20,7 +21,12 @@ export class RegistrationStep2Component implements OnInit {
         this.route.data.forEach((data: {skills: Skill[]}) => {
             this.user = this.registrationService.user;
             this.skills = data.skills;
+            this.stepAdded = this.registrationService.hasStep('Step 2.5');
             this.registrationService.currentForm = this.currentForm;
         });
+    }
+
+    manageAdditionalStep(isAdd: boolean) {
+        this.registrationService.manageAdditionalStep(isAdd, 'Step 2.5', 2.5);
     }
 }

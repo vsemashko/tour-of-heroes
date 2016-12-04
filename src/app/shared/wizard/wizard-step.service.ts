@@ -47,6 +47,14 @@ export class WizardStepsService {
         }
     }
 
+    public insertStep(step: WizardStep, index: number = 0): void {
+        this.allSteps.splice(index, 0, step);
+    }
+
+    public removeStep(step: WizardStep) {
+        this.allSteps.splice(this.allSteps.indexOf(step), 1);
+    }
+
     public hasNext(): boolean {
         return this.allSteps[this.allSteps.length - 1].name !== this.getCurrentStep().name;
     }

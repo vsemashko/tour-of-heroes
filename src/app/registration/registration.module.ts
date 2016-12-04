@@ -10,6 +10,8 @@ import { RegistrationStep3Component } from './steps/step3/registration-step3.com
 import { UserRolesService } from './steps/step1/user-role.service';
 import { RegistrationService } from './registration.service';
 import { UserSkillsService } from './steps/step2/user-skills.service';
+import { WizardStep } from '../shared/wizard/wizard-step';
+import { RegistrationStepConditionalComponent } from './steps/step-conditional/registration-step-conditional.component';
 
 
 @NgModule({
@@ -22,15 +24,25 @@ import { UserSkillsService } from './steps/step2/user-skills.service';
         RegistrationComponent,
         RegistrationStep1Component,
         RegistrationStep2Component,
-        RegistrationStep3Component
+        RegistrationStep3Component,
+        RegistrationStepConditionalComponent
 
     ],
     providers: [
-        [{provide: WizardConfigProviderService, useValue: {baseUrl: 'registration/', steps: REGISTRATION_STEPS}}],
+        [{provide: WizardConfigProviderService, useValue: getWizardConfig()}],
         RegistrationService,
         UserRolesService,
         UserSkillsService
     ]
 })
 export class RegistrationModule {
+}
+
+function getWizardConfig() {
+    return {
+        baseUrl: 'registration/',
+        steps: REGISTRATION_STEPS.filter((step: WizardStep) => {
+            return step.order >= 0
+        })
+    }
 }

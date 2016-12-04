@@ -26,7 +26,7 @@ export class RegistrationGuard implements CanActivateChild {
     }
 
     private isStepAvailable(childRoute: ActivatedRouteSnapshot) {
-        let availableSteps = this.registrationService.getAvailableSteps();
+        let availableSteps = this.registrationService.availableSteps;
         for (let i = 0; i < availableSteps.length; i++) {
             let step = availableSteps[i];
             if (step.route.component === childRoute.component) {

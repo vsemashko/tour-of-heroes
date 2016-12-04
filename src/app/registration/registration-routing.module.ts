@@ -8,6 +8,7 @@ import { RegistrationStep3Component } from './steps/step3/registration-step3.com
 import { UserRoleResolve } from './steps/step1/user-role-resolve.service';
 import { UserSkillsResolve } from './steps/step2/user-skills-resolve.service';
 import { RegistrationGuard } from './registration-guard.service';
+import { RegistrationStepConditionalComponent } from './steps/step-conditional/registration-step-conditional.component';
 
 export const REGISTRATION_STEPS: WizardStep[] = [
     {
@@ -28,7 +29,8 @@ export const REGISTRATION_STEPS: WizardStep[] = [
             }
         }
     },
-    {name: 'Step 3', order: 3, route: {path: 'step3', component: RegistrationStep3Component}}
+    {name: 'Step 3', order: 3, route: {path: 'step3', component: RegistrationStep3Component}},
+    {name: 'Step 2.5', order: -1, route: {path: 'step2_5', component: RegistrationStepConditionalComponent}}
 ];
 export const FIRST_STEP = REGISTRATION_STEPS[0];
 
