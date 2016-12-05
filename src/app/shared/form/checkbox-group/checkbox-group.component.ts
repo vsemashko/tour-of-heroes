@@ -1,7 +1,4 @@
-import {
-	Component, Input, Output, EventEmitter, forwardRef, ViewEncapsulation,
-	ChangeDetectionStrategy
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { coerceBooleanProperty } from '@angular/material';
 

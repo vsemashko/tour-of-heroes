@@ -11,7 +11,7 @@
                     class="form-control"
                     name="roleSelect"
                     required>
-                <option *ngFor="let role of roles" [value]="role">{{role.name}}</option>
+                <option *ngFor="let role of roles" [ngValue]="role">{{role.name}}</option>
             </select>
         </div>
     </div>
