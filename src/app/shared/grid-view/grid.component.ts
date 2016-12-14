@@ -1,31 +1,46 @@
-import { Component, Input, AfterContentInit } from '@angular/core';
-import { GridApi } from './grid-api.service';
-import { GridOptions } from './grid-options';
+import {
+    Component, Input, AfterContentInit, ContentChildren, QueryList, ChangeDetectorRef, ElementRef, Renderer, OnDestroy
+} from '@angular/core';
+import { GridApi, GridOptions } from './grid-api.service';
+import { Subscription } from 'rxjs';
+import { GridColumn } from './grid-column.directive';
+
 
 @Component({
-	selector: 'vcm-grid',
-	templateUrl: 'grid.component.html',
-	providers: [GridApi]
+    selector: 'vcm-grid',
+    templateUrl: 'grid.component.html',
+    providers: [GridApi]
 })
-export class GridComponent implements AfterContentInit {
-	@Input() gridOptions: GridOptions;
-	@Input() rows: any[];
+export class GridComponent implements AfterContentInit, OnDestroy {
+    @Input() gridOptions: GridOptions;
+    @Input() rows: any[] = [];
+    @Input() rowsTrackByKey: string;
 
-	constructor(public gridApi: GridApi) {
+    @ContentChildren(GridColumn) columns: QueryList<GridColumn>;
 
-	}
+    private _columnsSubscription: Subscription;
 
-	ngAfterContentInit(): void {
-		this.gridOptions || (this.gridOptions = {});
-		this.gridOptions.api = this.gridApi;
-		this.gridApi.number++;
-	}
+    constructor(private detector: ChangeDetectorRef,
+                element: ElementRef,
+                renderer: Renderer,
+                public gridApi: GridApi) {
+    }
 
-	get number() {
-		return this.gridApi.number;
-	}
+    ngAfterContentInit() {
+        this.gridOptions || (this.gridOptions = {});
+        this.gridOptions.api = this.gridApi;
+        this._columnsSubscription = this.columns.changes.subscribe(() => this.detector.markForCheck());
+    }
 
-	increment() {
-		this.gridApi.number++;
-	}
+    ngOnDestroy() {
+        this._columnsSubscription.unsubscribe();
+    }
+
+    columnTrackBy(index: number, column: GridColumn) {
+        return column.key || index;
+    }
+
+    rowsTrackBy(index: number, data: any) {
+        return this.rowsTrackByKey ? data[this.rowsTrackByKey] : index;
+    }
 }

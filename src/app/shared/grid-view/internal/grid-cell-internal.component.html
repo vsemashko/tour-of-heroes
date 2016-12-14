@@ -1,0 +1,2 @@
+<template *ngIf="cellTemplate" [ngTemplateOutlet]="cellTemplate" [ngOutletContext]="context"></template>
+<span *ngIf="!cellTemplate">{{value}}</span>

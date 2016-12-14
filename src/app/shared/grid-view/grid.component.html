@@ -1,8 +1,13 @@
-<div class="row" (click)="increment()">
-    <div class="col-xs-6" *ngFor="let item of items">
-        <div class="module hero">
-            <h4>{{item}}</h4>
-        </div>
+<div class="grid">
+    <vcm-grid-column-internal *ngFor="let column of columns; trackBy:columnTrackBy"
+                              [heading]="column.heading"
+                              [headingTemplate]="column.headingTemplate?.templateRef"
+                              [sortable]="column.sortable"></vcm-grid-column-internal>
+    <div class="row" *ngFor="let row of rows; let rowIndex = index; trackBy:rowsTrackBy">
+        <vcm-grid-cell-internal class="cell" *ngFor="let column of columns; trackBy:columnTrackBy"
+                                [row]="row"
+                                [cellTemplate]="column.cellTemplate?.templateRef"
+                                [key]="column.key"
+                                [index]="rowIndex"></vcm-grid-cell-internal>
     </div>
-    Number = {{number}}
 </div>
