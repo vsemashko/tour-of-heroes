@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
 
+export type SORT_ORDER = 'asc' | 'desc';
+
 export interface GridOptions {
-    api?: GridApi;
+	api?: GridApi;
+}
+
+export interface SortConfig {
+	key?: string,
+	order?: SORT_ORDER
 }
 
 @Injectable()
 export class GridApi {
-    number = 0;
+	public sort: SortConfig = {}
 }

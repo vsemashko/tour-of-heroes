@@ -1,0 +1,19 @@
+.sortable-title[sort-order]:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    clear: both;
+}
+
+.sortable-title[sort-order=asc]:before {
+    border-top: 5px solid #000000;
+}
+
+.sortable-title[sort-order=desc]:before {
+    border-bottom: 5px solid #000000;
+}

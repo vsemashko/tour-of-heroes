@@ -1,0 +1,10 @@
+<div>
+    <a class="sortable-title" *ngIf="sortable" (click)="sortChange()" [attr.sort-order]="sortOrder">
+        <template *ngIf="titleTemplate" [ngTemplateOutlet]="titleTemplate"></template>
+        <span *ngIf="!titleTemplate">{{title}}</span>
+    </a>
+    <div *ngIf="!sortable">
+        <template *ngIf="titleTemplate" [ngTemplateOutlet]="titleTemplate"></template>
+        <span *ngIf="!titleTemplate">{{title}}</span>
+    </div>
+</div>

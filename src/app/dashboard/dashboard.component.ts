@@ -13,8 +13,8 @@ export class DashboardComponent implements OnInit {
     heroes: Hero[] = [];
     gridOptions: GridOptions = {};
     rows: any[] = [
-        {id: 1, name: 'Iron Man'},
         {id: 2, name: 'Hulk'},
+        {id: 1, name: 'Iron Man'},
         {id: 3, name: 'Flash'},
         {id: 4, name: 'Batman'}
     ];
@@ -25,9 +25,5 @@ export class DashboardComponent implements OnInit {
     ngOnInit(): void {
         this.heroService.getHeroes()
             .then(heroes => this.heroes = heroes.slice(0, 4));
-    }
-
-    get number() {
-        return this.gridOptions.api ? this.gridOptions.api.number : -1;
     }
 }

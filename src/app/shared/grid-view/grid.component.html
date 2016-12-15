@@ -1,12 +1,14 @@
 <div class="grid">
     <div class="row grid-heading">
-        <vcm-grid-column-internal *ngFor="let column of columns; trackBy:columnTrackBy"
-                                  [title]="column.title"
-                                  [titleTemplate]="column.titleTemplate?.templateRef"
-                                  [sortable]="column.sortable"
-                                  class="{{column.classNames}}"></vcm-grid-column-internal>
+        <vcm-grid-title-internal *ngFor="let column of columns; trackBy:columnTrackBy"
+                                 [title]="column.title"
+                                 [titleTemplate]="column.titleTemplate?.templateRef"
+                                 [sortable]="column.sortable"
+                                 [sortOrder]="getOrder(column)"
+                                 (onSort)="changeSorting(column, $event)"
+                                 class="{{column.classNames}}"></vcm-grid-title-internal>
     </div>
-    <div class="row grid-row" *ngFor="let row of rows; let rowIndex = index; trackBy:rowsTrackBy">
+    <div class="row grid-row" *ngFor="let row of (rows | orderBy:gridApi.sort); let rowIndex = index; trackBy:rowsTrackBy">
         <vcm-grid-cell-internal *ngFor="let column of columns; trackBy:columnTrackBy"
                                 class="cell {{column.classNames}}"
                                 [row]="row"
