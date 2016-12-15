@@ -47,6 +47,10 @@ export class GridComponent implements AfterContentInit, OnDestroy {
 		this.gridApi.sort = {key: column.key, order: order};
 	}
 
+	changeFilter(column: GridColumn, filter: string): void {
+		this.gridApi.filter.set(column.key, filter);
+	}
+
 	columnTrackBy(index: number, column: GridColumn) {
 		return column.key || index;
 	}

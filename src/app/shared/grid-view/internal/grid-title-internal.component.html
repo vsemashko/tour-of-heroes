@@ -7,4 +7,7 @@
         <template *ngIf="titleTemplate" [ngTemplateOutlet]="titleTemplate"></template>
         <span *ngIf="!titleTemplate">{{title}}</span>
     </div>
+    <div class="column-filter" *ngIf="filterable">
+        <input [(ngModel)]="filterValue" (ngModelChange)="filterChange()" placeholder="Filter {{title}}">
+    </div>
 </div>

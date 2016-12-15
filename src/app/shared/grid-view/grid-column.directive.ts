@@ -14,6 +14,9 @@ export class GridColumn {
     @ContentChild(GridColumnTitle) titleTemplate: GridColumnTitle;
     @ContentChild(GridCell) cellTemplate: GridCell;
 
+    private _sortable: boolean = false;
+    private _filterable: boolean = false;
+
     @Input() set sortable(sortable: string | boolean) {
         this._sortable = coerceBooleanProperty(sortable);
     }
@@ -22,5 +25,11 @@ export class GridColumn {
         return this._sortable;
     }
 
-    private _sortable: boolean = false;
+    @Input() set filterable(filterable: string | boolean) {
+        this._filterable = coerceBooleanProperty(filterable);
+    }
+
+    get filterable() {
+        return this._filterable;
+    }
 }

@@ -12,9 +12,16 @@ export class GridTitleInternalComponent {
 	@Input() titleTemplate: TemplateRef<any>;
 	@Input() sortable: boolean;
 	@Input() sortOrder: SORT_ORDER;
+	@Input() filterable: boolean;
+	@Input() filterValue: string;
 	@Output() onSort: EventEmitter<SORT_ORDER> = new EventEmitter<SORT_ORDER>();
+	@Output() onFilter: EventEmitter<string> = new EventEmitter<string>();
 
 	sortChange() {
 		this.onSort.emit(this.sortOrder === 'desc' ? 'asc' : 'desc');
+	}
+
+	filterChange() {
+		this.onFilter.emit(this.filterValue);
 	}
 }

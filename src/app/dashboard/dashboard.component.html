@@ -24,10 +24,11 @@
 
 <vcm-grid [gridOptions]="gridOptions" [rows]="rows" trackByKey="id">
     <vcm-grid-column sortable title="Id" key="id" classNames="col-xs-2"></vcm-grid-column>
-    <vcm-grid-column sortable key="name" classNames="col-xs-6">
+    <vcm-grid-column sortable filterable title="Name" key="name" classNames="col-xs-4">
         <template vcm-grid-title><b>NAME</b></template>
         <template vcm-grid-cell let-row="row"><strong>{{row.name}}</strong></template>
     </vcm-grid-column>
+    <vcm-grid-column filterable title="Skill" key="skill" classNames="col-xs-4"></vcm-grid-column>
 </vcm-grid>
 
 <router-outlet></router-outlet>

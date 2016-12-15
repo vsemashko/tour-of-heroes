@@ -13,5 +13,6 @@ export interface SortConfig {
 
 @Injectable()
 export class GridApi {
-	public sort: SortConfig = {}
+	public sort: SortConfig = {};
+	public filter: Map<string, string> = new Map<string, string>();
 }

@@ -8,6 +8,7 @@ import { GridCell } from './grid-cell.directive';
 import { GridCellInternalComponent } from './internal/grid-cell-internal.component';
 import { GridColumnTitle } from './grid-column-title.directive';
 import { OrderByPipe } from './order/order-by.pipe';
+import { FilterByPipe } from './filter/filter-by.pipe';
 
 const GRID_DIRECTIVES = [
 	GridComponent,
@@ -28,7 +29,8 @@ const GRID_DIRECTIVES = [
 		GRID_DIRECTIVES,
 		GridTitleInternalComponent,
 		GridCellInternalComponent,
-		OrderByPipe
+		OrderByPipe,
+		FilterByPipe
 	],
 	providers: []
 })
