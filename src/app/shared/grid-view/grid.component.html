@@ -1,10 +1,14 @@
 <div class="grid">
-    <vcm-grid-column-internal *ngFor="let column of columns; trackBy:columnTrackBy"
-                              [heading]="column.heading"
-                              [headingTemplate]="column.headingTemplate?.templateRef"
-                              [sortable]="column.sortable"></vcm-grid-column-internal>
-    <div class="row" *ngFor="let row of rows; let rowIndex = index; trackBy:rowsTrackBy">
-        <vcm-grid-cell-internal class="cell" *ngFor="let column of columns; trackBy:columnTrackBy"
+    <div class="row grid-heading">
+        <vcm-grid-column-internal *ngFor="let column of columns; trackBy:columnTrackBy"
+                                  [title]="column.title"
+                                  [titleTemplate]="column.titleTemplate?.templateRef"
+                                  [sortable]="column.sortable"
+                                  class="{{column.classNames}}"></vcm-grid-column-internal>
+    </div>
+    <div class="row grid-row" *ngFor="let row of rows; let rowIndex = index; trackBy:rowsTrackBy">
+        <vcm-grid-cell-internal *ngFor="let column of columns; trackBy:columnTrackBy"
+                                class="cell {{column.classNames}}"
                                 [row]="row"
                                 [cellTemplate]="column.cellTemplate?.templateRef"
                                 [key]="column.key"

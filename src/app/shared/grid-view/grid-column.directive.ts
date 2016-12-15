@@ -1,16 +1,17 @@
 import { Input, ContentChild, Directive } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/material';
 import { GridCell } from './grid-cell.directive';
-import { GridHeading } from './grid-heading.directive';
+import { GridColumnTitle } from './grid-column-title.directive';
 
 @Directive({
     selector: 'vcm-grid-column'
 })
 export class GridColumn {
-    @Input() heading: string;
+    @Input() title: string;
     @Input() key: string;
+    @Input() classNames: string = '';
 
-    @ContentChild(GridHeading) headingTemplate: GridHeading;
+    @ContentChild(GridColumnTitle) titleTemplate: GridColumnTitle;
     @ContentChild(GridCell) cellTemplate: GridCell;
 
     @Input() set sortable(sortable: string | boolean) {

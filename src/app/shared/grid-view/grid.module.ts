@@ -6,29 +6,29 @@ import { GridColumn } from './grid-column.directive';
 import { GridColumnInternalComponent } from './internal/grid-column-internal.component';
 import { GridCell } from './grid-cell.directive';
 import { GridCellInternalComponent } from './internal/grid-cell-internal.component';
-import { GridHeading } from './grid-heading.directive';
+import { GridColumnTitle } from './grid-column-title.directive';
 
 const GRID_DIRECTIVES = [
-    GridComponent,
-    GridColumn,
-    GridCell,
-    GridHeading
+	GridComponent,
+	GridColumn,
+	GridCell,
+	GridColumnTitle
 ];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule
-    ],
-    exports: [
-        GRID_DIRECTIVES
-    ],
-    declarations: [
-        GRID_DIRECTIVES,
-        GridColumnInternalComponent,
-        GridCellInternalComponent
-    ],
-    providers: []
+	imports: [
+		CommonModule,
+		FormsModule
+	],
+	exports: [
+		GRID_DIRECTIVES
+	],
+	declarations: [
+		GRID_DIRECTIVES,
+		GridColumnInternalComponent,
+		GridCellInternalComponent
+	],
+	providers: []
 })
 export class GridModule {
 }

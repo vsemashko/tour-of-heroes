@@ -6,8 +6,9 @@ import { Component, Input, ChangeDetectionStrategy, TemplateRef, Output, EventEm
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GridColumnInternalComponent {
-    @Input() heading: string;
-    @Input() headingTemplate: TemplateRef<any>;
+    @Input() title: string;
+    @Input() titleTemplate: TemplateRef<any>;
+    @Input() classNames: string;
     @Input() sortable: boolean;
     @Input() sortOrder: 'asc' | 'desc';
     @Output() onSort = new EventEmitter();

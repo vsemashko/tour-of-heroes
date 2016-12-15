@@ -23,9 +23,9 @@
 
 
 <vcm-grid [gridOptions]="gridOptions" [rows]="rows" trackByKey="id">
-    <vcm-grid-column heading="Id" key="id" sortable></vcm-grid-column>
-    <vcm-grid-column sortable>
-        <template vcm-grid-heading><b>NAME</b></template>
+    <vcm-grid-column title="Id" key="id" sortable classNames="col-xs-2"></vcm-grid-column>
+    <vcm-grid-column sortable classNames="col-xs-6">
+        <template vcm-grid-title><b>NAME</b></template>
         <template vcm-grid-cell let-row="row"><button>{{row.name}}</button></template>
     </vcm-grid-column>
 </vcm-grid>
