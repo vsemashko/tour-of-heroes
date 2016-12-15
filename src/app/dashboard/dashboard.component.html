@@ -21,6 +21,7 @@
     <input type="radio" name="colors" (click)="color='cyan'">Cyan
 </div>-->
 
+<input [(ngModel)]="search" (ngModelChange)="gridOptions.api.search = search" placeholder="Search ...">
 
 <vcm-grid [gridOptions]="gridOptions" [rows]="rows" trackByKey="id">
     <vcm-grid-column sortable title="Id" key="id" classNames="col-xs-2"></vcm-grid-column>

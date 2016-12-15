@@ -15,4 +15,5 @@ export interface SortConfig {
 export class GridApi {
 	public sort: SortConfig = {};
 	public filter: Map<string, string> = new Map<string, string>();
+	public search: string;
 }

@@ -7,7 +7,7 @@
                                  class="{{column.classNames}}"></vcm-grid-title-internal>
     </div>
     <div class="row grid-row"
-         *ngFor="let row of (rows | filterBy:gridApi.filter | orderBy:gridApi.sort); let rowIndex = index; trackBy:rowsTrackBy">
+         *ngFor="let row of (rows | filterBy:gridApi.filter | search: gridApi.search | orderBy:gridApi.sort); let rowIndex = index; trackBy:rowsTrackBy">
         <vcm-grid-cell-internal *ngFor="let column of columns; trackBy:columnTrackBy"
                                 class="cell {{column.classNames}}"
                                 [row]="row"
